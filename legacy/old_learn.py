@@ -86,11 +86,7 @@ val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=True)
 embeddings = embeddings.to(device)
 edge_tensor = edge_tensor.to(device)
 
-model = SubgraphMamba(hidden_dim, mamba_dim, num_classes, embeddings, edge_tensor, 
-    n_layers=4, dropout=0.2, zero_one_label=True, graph_conv=True, prenorm=True, 
-    concat_emb=True, freeze_mamba=freeze_mamba)
-# TODO put those hyperparams into the config file or the command line 
-
+model = SubgraphMamba(hidden_dim, mamba_dim, num_classes, embeddings, edge_tensor, freeze_mamba=freeze_mamba)
 optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay = weight_decay)
 if multilabel:
     criterion = nn.BCEWithLogitsLoss()
@@ -106,51 +102,70 @@ def train():
 
     t = time()
     model.train()
-    loss_train = 0.0
-    correct = 0
-    data = next(iter(train_loader))
-    sequence, inclusion, subgraph_size, y = data
-    optimizer.zero_grad()
-    sequence = sequence.to(device)
-    inclusion = inclusion.to(device)
-    subgraph_size = subgraph_size.to(device)
-    y=y.to(device)
-    out = model(sequence, inclusion, subgraph_size) 
-    epoch = 0
-    loss = criterion(out, y)
-    loss.backward()
-    optimizer.step()
-    if torch.isnan(loss):
-        logging.info(out)
-        logging.info(y)
-        return 
-    loss_train += loss.item()
-    if multilabel:
-        pred = torch.sigmoid(out).data > 0.5
-    else: 
-        pred = out.max(dim=1)[1]
-    correct += pred.eq(y).sum().item()
-    if multilabel: 
-        acc_val, loss_val = compute_test_multilabel(val_loader)
-        acc_train = correct / (len(train_loader.dataset)*num_classes)
-    else: 
-        acc_val, loss_val = compute_test(val_loader)
-        acc_train = correct / (len(train_loader.dataset))
+    for epoch in range(epochs):
+        loss_train = 0.0
+        correct = 0
+        for i, data in enumerate(train_loader):
+            sequence, inclusion, subgraph_size, y = data
+            optimizer.zero_grad()
+            sequence = sequence.to(device)
+            inclusion = inclusion.to(device)
+            subgraph_size = subgraph_size.to(device)
+            y=y.to(device)
+            out = model(sequence, inclusion, subgraph_size) 
 
-    information = ('Epoch: {:04d}'.format(epoch + 1), 'loss_train: {:.4f}'.format(loss_train),
-            'acc_train: {:.4f}'.format(acc_train),
-            'acc_val: {:.4f}'.format(acc_val))
-    log_str = ' '.join(information)
-    logging.info(log_str)
+            loss = criterion(out, y)
+            loss.backward()
+            optimizer.step()
+            if torch.isnan(loss):
+                logging.info(out)
+                logging.info(y)
+                return 
+            loss_train += loss.item()
+            if multilabel:
+                pred = torch.sigmoid(out).data > 0.5
+            else: 
+                pred = out.max(dim=1)[1]
+            correct += pred.eq(y).sum().item()
+        if multilabel: 
+            acc_val, loss_val = compute_test_multilabel(val_loader)
+            acc_train = correct / (len(train_loader.dataset)*num_classes)
+        else: 
+            acc_val, loss_val = compute_test(val_loader)
+            acc_train = correct / (len(train_loader.dataset))
+        
+        information = ('Epoch: {:04d}'.format(epoch + 1), 'loss_train: {:.4f}'.format(loss_train),
+              'acc_train: {:.4f}'.format(acc_train),
+              'acc_val: {:.4f}'.format(acc_val))
+        log_str = ' '.join(information)
+        logging.info(log_str)
 
-    val_acc_values.append(acc_val)
-    # torch.save(model.state_dict(), '{}.pth'.format(epoch))
-    if val_acc_values[-1] > max_acc:
-        max_acc = val_acc_values[-1]
-        best_epoch = epoch
-        patience_cnt = 0
-    else:
-        patience_cnt += 1
+        val_acc_values.append(acc_val)
+        # torch.save(model.state_dict(), '{}.pth'.format(epoch))
+        if val_acc_values[-1] > max_acc:
+            max_acc = val_acc_values[-1]
+            best_epoch = epoch
+            patience_cnt = 0
+        else:
+            patience_cnt += 1
+
+        if patience_cnt == patience:
+            break
+
+        '''
+        files = glob.glob('*.pth')
+        for f in files:
+            epoch_nb = int(f.split('.')[0])
+            if epoch_nb < best_epoch:
+                os.remove(f)
+        '''
+
+    '''files = glob.glob('*.pth')
+    for f in files:
+        epoch_nb = int(f.split('.')[0])
+        if epoch_nb > best_epoch:
+            os.remove(f)
+    '''
     logging.info('Optimization Finished! Total time elapsed: {:.6f}'.format(time() - t))
 
     return best_epoch

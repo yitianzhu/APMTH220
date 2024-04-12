@@ -1,0 +1,7 @@
+Running Subgraph Mamba on dataset: ppi_bp
+/home/gridsan/yzhu/AM220/SubgraphMamba/dataset.py:38: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y = torch.tensor(self.subgraph_labels[idx], dtype=torch.long)
+[9339]
+{'metabolism': 0, 'development': 1, 'signal_transduction': 2, 'stress_death': 3, 'cell_org': 4, 'transport': 5}
+/home/gridsan/yzhu/AM220/SubgraphMamba/dataset.py:38: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y = torch.tensor(self.subgraph_labels[idx], dtype=torch.long)

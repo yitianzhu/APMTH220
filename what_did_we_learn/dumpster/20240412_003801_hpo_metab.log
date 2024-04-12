@@ -1,0 +1,11 @@
+2024-04-12 00:38:01,593:INFO:Freezing Mamba layers to compare performance
+2024-04-12 00:38:01,594:INFO:Current date and time:2024-04-12 00:38:01.594929
+2024-04-12 00:38:01,595:INFO:{'dataset_name': 'hpo_metab', 'learning_rate': 0.01, 'weight_decay': 0.01, 'batch_size': 32, 'augment': 10, 'epochs': 50, 'patience': 100, 'hidden_dim': 16, 'mamba_dim': 16, 'seqlength': 5000, 'hops': 3, 'num_classes': 6, 'multilabel': False, 'embeddings_filename': 'graphsaint_gcn_embeddings.pth'}
+2024-04-12 00:38:53,988:INFO:Epoch: 0001 loss_train: 1069.0805 acc_train: 0.2033 acc_val: 0.2008
+2024-04-12 00:39:37,359:INFO:Epoch: 0002 loss_train: 1058.3871 acc_train: 0.2155 acc_val: 0.1680
+2024-04-12 00:40:30,051:INFO:Epoch: 0003 loss_train: 1054.5773 acc_train: 0.2242 acc_val: 0.2008
+2024-04-12 00:41:10,423:INFO:Epoch: 0004 loss_train: 1052.8718 acc_train: 0.2295 acc_val: 0.1844
+2024-04-12 00:41:55,153:INFO:Epoch: 0005 loss_train: 1050.6746 acc_train: 0.2362 acc_val: 0.2254
+2024-04-12 00:42:42,323:INFO:Epoch: 0006 loss_train: 1050.3688 acc_train: 0.2343 acc_val: 0.2336
+2024-04-12 00:43:23,982:INFO:Epoch: 0007 loss_train: 1049.1219 acc_train: 0.2357 acc_val: 0.2049
+2024-04-12 00:44:04,358:INFO:Epoch: 0008 loss_train: 1049.5443 acc_train: 0.2345 acc_val: 0.2008

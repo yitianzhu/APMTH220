@@ -34,8 +34,7 @@ Tried LR of 0.0005 for all three datasets but it seems like there's similar beha
 A few things to try 
 * ablation: freeze the mamba block layers and see if it still trains. 
 * permutation: randomly order the subgraphs and their neighbors in like 50 different ways as data augmentation 
-UPDATE: ABLATION SHOWS MAMBA AINT DOING SHIT -- same results as freezing. kinda confused -- gonna print the gradients. 
-if those gradients are 0 then we know theres not much learning going on. 
+UPDATE: ABLATION SHOWS MAMBA AINT DOING SHIT -- same results as freezing. kinda confused
 UPDATE: AUGMENT IS HELPING?!??!
 
 04/11 b
@@ -43,4 +42,24 @@ Augmenting by generating slightly perturbed sequences for mamba to take in
 (aka just randomized within nodes of same degree and changing order of the subgraph)
 Learning is slightly faster, but we should figure out if we credit Mamba for it.
 Trying one with frozen Mamba layers to see if it helps. 
+OK SO after 50 epochs at LR 0.0005 the linear only did kinda bad on training accuracy while mamba did better (0.3 vs 0.4)
+BUT unfortunately they are very much overfit, validation ends up being 0.25 ish and quite unstable 
 
+04/11 c
+(1) Apply batch normalization, dropout, and skip connections. see Janus code for inspiration 
+if (1) doesnt work then (2) train for some epochs then freeze all layers except for Mamba. 
+Ok nevermind, (1) does work. \
+
+here's the takeaways for hpo_metab
+* Mamba does help (1 mamba layer vs frozen mamba weights) (66% vs 36% training) 
+* More mamba layers makes huge difference (1 vs 2 vs 4 mamba layers) (66% vs 90% vs 100% training)
+* zero-one labeling seems to help a bit? (no label vs label) (63% vs 66%)
+* code failed for no concatentation, my bad
+* base GCN layer is needed, (no gcn vs gcn) (48.9% vs 66%)
+PROBLEM: totally overfitting to training data. I never got above 30% validation!
+
+here's the takeaways for hpo_neuro 
+* increasing layers helps training but hurts validation scores. mamba layers (1 2 4) train (84% 88% 95%) val (79% 75% 73%)
+* mamba makes a difference though: if you freeze mamba layers training accuracy doesnt change (79% to 80%). final trainig accuracy (no mamba vs mamba) (80% vs 84%)
+* zero-one labeling doesn't seem to help much
+PROBLEM: overfitting here too! 

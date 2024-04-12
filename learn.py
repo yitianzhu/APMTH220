@@ -3,6 +3,8 @@ import glob
 import json 
 import datetime
 import argparse
+import logging 
+from time import time 
 
 import torch 
 import torch.nn as nn 
@@ -11,26 +13,40 @@ from torch.utils.data import DataLoader
 from model import SubgraphMamba 
 from dataset import SubgraphDataset
 from utils import read_subgraphs
-from time import time 
 
 
 # Parse command line arguments for the dataset
 parser = argparse.ArgumentParser(description='Subgraph Mamba Learning')
 parser.add_argument('--dataset', type=str, required=True, help='Dataset string')
+parser.add_argument('--n-layers', type=int, default=2, help='Number of layers (default: 2)')
 parser.add_argument('--freeze-mamba', action='store_true', help='Freeze Mamba flag')
+parser.add_argument('--zero-one-label', action='store_true', help='Use 0/1 labels for classes')
+parser.add_argument('--graph-conv', action='store_true', help='Use graph convolution layers')
+parser.add_argument('--concat-emb', action='store_true', help='Concatenate embeddings')
+parser.add_argument('--logfilename', type=str, default=None, help='Save to log file')
 args = parser.parse_args()
 
 dataset = args.dataset
+zero_one_label = args.zero_one_label
+n_layers = args.n_layers
+graph_conv = args.graph_conv
+concat_emb = args.concat_emb
 freeze_mamba = args.freeze_mamba
+logfilename = args.logfilename
+if logfilename is None: 
+    current_datetime = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    logfilename = f"dumpster/{current_datetime}_{dataset}.log"
 dataset_filename = f"data/{dataset}/"
 
+logging.basicConfig(filename=f'what_did_we_learn/{logfilename}', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
+
 if freeze_mamba:
-    print("Freezing Mamba layers to compare performance")
+    logging.info("Freezing Mamba layers to compare performance")
 
 with open(dataset_filename+'config.json', 'r') as f:
     config = json.load(f)
-    print("Current date and time:", datetime.datetime.now())
-    print(config)
+    logging.info(f"Current date and time:{datetime.datetime.now()}")
+    logging.info(config)
 learning_rate = config['learning_rate']
 weight_decay = config['weight_decay']
 batch_size = config['batch_size']
@@ -78,7 +94,10 @@ val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=True)
 embeddings = embeddings.to(device)
 edge_tensor = edge_tensor.to(device)
 
-model = SubgraphMamba(hidden_dim, mamba_dim, num_classes, embeddings, edge_tensor, freeze_mamba=freeze_mamba)
+model = SubgraphMamba(hidden_dim, mamba_dim, num_classes, embeddings, edge_tensor, 
+    n_layers=n_layers, dropout=0.2, zero_one_label=zero_one_label, graph_conv=graph_conv, prenorm=True, 
+    concat_emb=concat_emb, freeze_mamba=freeze_mamba)
+
 optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay = weight_decay)
 if multilabel:
     criterion = nn.BCEWithLogitsLoss()
@@ -104,15 +123,14 @@ def train():
             inclusion = inclusion.to(device)
             subgraph_size = subgraph_size.to(device)
             y=y.to(device)
-            out = model(sequence, inclusion, subgraph_size)
-            model.print_mamba_gradients() # TODO delete this line or else u will go crazy 
+            out = model(sequence, inclusion, subgraph_size) 
 
             loss = criterion(out, y)
             loss.backward()
             optimizer.step()
             if torch.isnan(loss):
-                print(out)
-                print(y)
+                logging.info(out)
+                logging.info(y)
                 return 
             loss_train += loss.item()
             if multilabel:
@@ -126,9 +144,12 @@ def train():
         else: 
             acc_val, loss_val = compute_test(val_loader)
             acc_train = correct / (len(train_loader.dataset))
-        print('Epoch: {:04d}'.format(epoch + 1), 'loss_train: {:.4f}'.format(loss_train),
+        
+        information = ('Epoch: {:04d}'.format(epoch + 1), 'loss_train: {:.4f}'.format(loss_train),
               'acc_train: {:.4f}'.format(acc_train),
               'acc_val: {:.4f}'.format(acc_val))
+        log_str = ' '.join(information)
+        logging.info(log_str)
 
         val_acc_values.append(acc_val)
         # torch.save(model.state_dict(), '{}.pth'.format(epoch))
@@ -156,7 +177,7 @@ def train():
         if epoch_nb > best_epoch:
             os.remove(f)
     '''
-    print('Optimization Finished! Total time elapsed: {:.6f}'.format(time() - t))
+    logging.info('Optimization Finished! Total time elapsed: {:.6f}'.format(time() - t))
 
     return best_epoch
 

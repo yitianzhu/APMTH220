@@ -1,0 +1,6 @@
+2024-04-12 09:24:09,604:INFO:Current date and time:2024-04-12 09:24:09.604053
+2024-04-12 09:24:09,605:INFO:{'dataset_name': 'ppi_bp', 'learning_rate': 0.001, 'weight_decay': 0.01, 'batch_size': 32, 'augment': 10, 'epochs': 50, 'patience': 100, 'hidden_dim': 16, 'mamba_dim': 16, 'seqlength': 5000, 'hops': 3, 'num_classes': 6, 'multilabel': False, 'embeddings_filename': 'graphsaint_gcn_embeddings.pth'}
+2024-04-12 09:27:16,972:INFO:Epoch: 0001 loss_train: 677.2055 acc_train: 0.3009 acc_val: 0.2619
+2024-04-12 09:30:13,460:INFO:Epoch: 0002 loss_train: 663.5396 acc_train: 0.3135 acc_val: 0.2906
+2024-04-12 09:33:05,892:INFO:Epoch: 0003 loss_train: 652.1257 acc_train: 0.3359 acc_val: 0.3169
+2024-04-12 09:35:58,438:INFO:Epoch: 0004 loss_train: 637.4354 acc_train: 0.3570 acc_val: 0.2888

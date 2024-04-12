@@ -1,0 +1,9 @@
+Running Subgraph Mamba on dataset: hpo_neuro
+WARNING: Multilabel classification
+{'Intellectual': 0, 'Genetic_Dementia': 1, 'Neurodegenerative': 2, 'Epilepsy': 3, 'Ataxia': 4, 'CNS_Malformation': 5, 'Neurometabolic': 6, 'Movement': 7, 'Peripheral_Neuropathy': 8, 'Neuromuscular': 9}
+WARNING: Multilabel classification
+{'Intellectual': 0, 'Genetic_Dementia': 1, 'Neurodegenerative': 2, 'Epilepsy': 3, 'Ataxia': 4, 'CNS_Malformation': 5, 'Neurometabolic': 6, 'Movement': 7, 'Peripheral_Neuropathy': 8, 'Neuromuscular': 9}
+WARNING: Multilabel classification
+{'Intellectual': 0, 'Genetic_Dementia': 1, 'Neurodegenerative': 2, 'Epilepsy': 3, 'Ataxia': 4, 'CNS_Malformation': 5, 'Neurometabolic': 6, 'Movement': 7, 'Peripheral_Neuropathy': 8, 'Neuromuscular': 9}
+WARNING: Multilabel classification
+{'Intellectual': 0, 'Genetic_Dementia': 1, 'Neurodegenerative': 2, 'Epilepsy': 3, 'Ataxia': 4, 'CNS_Malformation': 5, 'Neurometabolic': 6, 'Movement': 7, 'Peripheral_Neuropathy': 8, 'Neuromuscular': 9}

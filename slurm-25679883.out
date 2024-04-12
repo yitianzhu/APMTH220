@@ -1,0 +1,4 @@
+Running Subgraph Mamba on dataset: hpo_metab
+freezing mamba
+/home/gridsan/yzhu/AM220/SubgraphMamba/dataset.py:38: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y = torch.tensor(self.subgraph_labels[idx], dtype=torch.long)

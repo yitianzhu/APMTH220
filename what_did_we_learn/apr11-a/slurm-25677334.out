@@ -1,0 +1,57 @@
+Running Subgraph Mamba on dataset: hpo_neuro
+Freezing Mamba layers to compare performance
+Current date and time: 2024-04-11 15:26:44.592349
+{'dataset_name': 'hpo_neuro', 'learning_rate': 0.0005, 'weight_decay': 0.01, 'batch_size': 32, 'epochs': 50, 'patience': 100, 'hidden_dim': 16, 'mamba_dim': 16, 'seqlength': 3000, 'hops': 2, 'num_classes': 10, 'multilabel': True, 'embeddings_filename': 'graphsaint_gcn_embeddings.pth'}
+WARNING: Multilabel classification
+{'Intellectual': 0, 'Genetic_Dementia': 1, 'Neurodegenerative': 2, 'Epilepsy': 3, 'Ataxia': 4, 'CNS_Malformation': 5, 'Neurometabolic': 6, 'Movement': 7, 'Peripheral_Neuropathy': 8, 'Neuromuscular': 9}
+Epoch: 0001 loss_train: 65.4379 acc_train: 0.6662 acc_val: 0.8037
+Epoch: 0002 loss_train: 53.8553 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0003 loss_train: 50.3099 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0004 loss_train: 50.0658 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0005 loss_train: 49.9994 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0006 loss_train: 49.8890 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0007 loss_train: 49.9033 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0008 loss_train: 49.9449 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0009 loss_train: 49.9330 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0010 loss_train: 49.8426 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0011 loss_train: 49.8854 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0012 loss_train: 49.8088 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0013 loss_train: 49.8583 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0014 loss_train: 49.8701 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0015 loss_train: 49.8470 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0016 loss_train: 49.8426 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0017 loss_train: 49.8768 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0018 loss_train: 49.8196 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0019 loss_train: 49.8117 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0020 loss_train: 49.8087 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0021 loss_train: 49.8319 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0022 loss_train: 49.7795 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0023 loss_train: 49.7660 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0024 loss_train: 49.7688 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0025 loss_train: 49.8114 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0026 loss_train: 49.7777 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0027 loss_train: 49.7625 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0028 loss_train: 49.6756 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0029 loss_train: 49.7224 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0030 loss_train: 49.7074 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0031 loss_train: 49.6730 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0032 loss_train: 49.6427 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0033 loss_train: 49.6423 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0034 loss_train: 49.5960 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0035 loss_train: 49.5049 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0036 loss_train: 49.5084 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0037 loss_train: 49.5138 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0038 loss_train: 49.4290 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0039 loss_train: 49.5235 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0040 loss_train: 49.4285 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0041 loss_train: 49.4512 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0042 loss_train: 49.3181 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0043 loss_train: 49.3531 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0044 loss_train: 49.2905 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0045 loss_train: 49.2553 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0046 loss_train: 49.3539 acc_train: 0.7982 acc_val: 0.8037
+Epoch: 0047 loss_train: 49.2032 acc_train: 0.7981 acc_val: 0.8037
+Epoch: 0048 loss_train: 49.1805 acc_train: 0.7980 acc_val: 0.8037
+Epoch: 0049 loss_train: 49.1705 acc_train: 0.7979 acc_val: 0.8037
+Epoch: 0050 loss_train: 49.0536 acc_train: 0.7978 acc_val: 0.8037
+Optimization Finished! Total time elapsed: 486.481216

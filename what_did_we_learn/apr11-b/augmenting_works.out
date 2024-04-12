@@ -1,0 +1,12 @@
+Trying Subgraph Mamba on dataset: hpo_metab
+Trying augmenting data by 5x
+/home/gridsan/yzhu/AM220/SubgraphMamba/dataset.py:38: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y = torch.tensor(self.subgraph_labels[idx], dtype=torch.long)
+Current date and time: 2024-04-11 20:36:32.971861
+{'dataset_name': 'hpo_metab', 'learning_rate': 0.0005, 'weight_decay': 0.01, 'batch_size': 32, 'epochs': 50, 'patience': 100, 'hidden_dim': 16, 'mamba_dim': 16, 'seqlength': 3000, 'hops': 2, 'num_classes': 6, 'multilabel': False, 'embeddings_filename': 'graphsaint_gcn_embeddings.pth'}
+[2684]
+{'Lysosomal': 0, 'Energy': 1, 'Amino_Acid': 2, 'Carbohydrate': 3, 'Lipid': 4, 'Glycosylation': 5}
+Epoch: 0001 loss_train: 539.2510 acc_train: 0.1856 acc_val: 0.2254
+Epoch: 0002 loss_train: 535.5670 acc_train: 0.2203 acc_val: 0.1926
+Epoch: 0003 loss_train: 519.7565 acc_train: 0.2553 acc_val: 0.2418
+Optimization Finished! Total time elapsed: 63.776267

@@ -1,0 +1,27 @@
+/var/spool/slurmd/job25650700/slurm_script: line 3: module: command not found
+Name: mamba-ssm
+Version: 1.2.0.post1
+Summary: Mamba state-space model
+Home-page: https://github.com/state-spaces/mamba
+Author: Tri Dao, Albert Gu
+Author-email: tri@tridao.me, agu@cs.cmu.edu
+License: 
+Location: /home/gridsan/yzhu/.local/lib/python3.9/site-packages
+Requires: einops, ninja, packaging, torch, transformers, triton
+Required-by: 
+Epoch: 0001 loss_train: 16.0572 acc_train: 0.5310 acc_val: 0.5510
+Epoch: 0002 loss_train: 16.0110 acc_train: 0.5088 acc_val: 0.5714
+Epoch: 0003 loss_train: 15.9723 acc_train: 0.4690 acc_val: 0.5306
+Epoch: 0004 loss_train: 15.9506 acc_train: 0.5133 acc_val: 0.5714
+Epoch: 0005 loss_train: 15.9345 acc_train: 0.5354 acc_val: 0.6327
+Epoch: 0006 loss_train: 15.9222 acc_train: 0.5133 acc_val: 0.5918
+Epoch: 0007 loss_train: 15.9125 acc_train: 0.5177 acc_val: 0.5918
+Epoch: 0008 loss_train: 15.9033 acc_train: 0.5177 acc_val: 0.5918
+Epoch: 0009 loss_train: 15.8965 acc_train: 0.5265 acc_val: 0.6735
+Epoch: 0010 loss_train: 15.9145 acc_train: 0.5044 acc_val: 0.5918
+Epoch: 0011 loss_train: 15.9025 acc_train: 0.5133 acc_val: 0.5102
+Epoch: 0012 loss_train: 15.8889 acc_train: 0.4956 acc_val: 0.6327
+Epoch: 0013 loss_train: 15.8474 acc_train: 0.5310 acc_val: 0.6531
+Epoch: 0014 loss_train: 15.8544 acc_train: 0.4779 acc_val: 0.6531
+Epoch: 0015 loss_train: 15.8592 acc_train: 0.5088 acc_val: 0.5714
+Optimization Finished! Total time elapsed: 12.195126

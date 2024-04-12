@@ -1,0 +1,46 @@
+04/08 a
+Learning rate of 0.01 is WAY TOO LARGE, loss starts increasing. 
+Learning rate of 0.001 works but it can be a bit slow. 
+Accuracy is also not strictly increasing, could be sign of instability. 
+Next time I should try LR 0.0005 and LR 0.005 at 15 epochs. 
+
+04/08 b
+Learning rate 0.005 doesn't work; for some reason it just stays at the same loss after each epoch 
+Learning rate 0.0005 is okay but we see some instability. Might have to do with batch size. 
+Next time I will try batch size of 35 for both train and val. 
+
+04/08 c
+Training accuracy rarely exceeds random guessing, validation accuracy is all over the place 
+Need to look back at graph mamba and see how they did their architecture 
+Also we are stuck at 0 hops right now aka it's just graph mamba block on subgraphs. 
+
+04/08 d
+I just incorporated the skip connection and the mean by inclusion (higher degree nodes will be weighted more)
+batch size matters! when batch size was 32 nothing happened... well loss increased a bit. 
+I changed it to batch size 20 and it started learning. also i decreased LR to 0.0001 
+nothing is looking hot, so i changed the hidden dimension to 64. also did not work 
+Trying to use 2 mamba layers instead of 1 
+
+04/09 a
+Need more subgraphs in the dataset. 
+Let's try hpo_neuro and hpo_metab which have like 3000 and 2000 subgraphs in the dataset as opposed to 200 
+Ah frick it's monthly downtime smh I am convinced that the computing cluster is a female
+802 hpo_metab
+Note that 6 classes for hpo_metab - dict_keys(['Lysosomal', 'Energy', 'Amino_Acid', 'Carbohydrate', 'Lipid', 'Glycosylation'])
+Let's try HPO_metab 50 epochs at lr 0.01 0.001 
+
+04/11 a 
+Tried LR of 0.0005 for all three datasets but it seems like there's similar behavior where it's not learning really well.
+A few things to try 
+* ablation: freeze the mamba block layers and see if it still trains. 
+* permutation: randomly order the subgraphs and their neighbors in like 50 different ways as data augmentation 
+UPDATE: ABLATION SHOWS MAMBA AINT DOING SHIT -- same results as freezing. kinda confused -- gonna print the gradients. 
+if those gradients are 0 then we know theres not much learning going on. 
+UPDATE: AUGMENT IS HELPING?!??!
+
+04/11 b
+Augmenting by generating slightly perturbed sequences for mamba to take in
+(aka just randomized within nodes of same degree and changing order of the subgraph)
+Learning is slightly faster, but we should figure out if we credit Mamba for it.
+Trying one with frozen Mamba layers to see if it helps. 
+

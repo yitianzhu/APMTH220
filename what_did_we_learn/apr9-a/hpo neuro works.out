@@ -1,0 +1,56 @@
+/var/spool/slurmd/job25661234/slurm_script: line 3: module: command not found
+Current date and time: 2024-04-09 18:28:31.079828
+{'dataset_name': 'hpo_neuro', 'learning_rate': 0.001, 'weight_decay': 0.01, 'batch_size': 32, 'epochs': 50, 'patience': 100, 'hidden_dim': 64, 'mamba_dim': 64, 'num_classes': 10, 'multilabel': True, 'embeddings_filename': 'graphsaint_gcn_embeddings.pth'}
+WARNING: Multilabel classification
+{'Intellectual': 0, 'Genetic_Dementia': 1, 'Neurodegenerative': 2, 'Epilepsy': 3, 'Ataxia': 4, 'CNS_Malformation': 5, 'Neurometabolic': 6, 'Movement': 7, 'Peripheral_Neuropathy': 8, 'Neuromuscular': 9}
+Epoch: 0001 loss_train: 53.0177 acc_train: 7.8043 acc_val: 0.8037
+Epoch: 0002 loss_train: 49.9228 acc_train: 7.9822 acc_val: 0.8037
+Epoch: 0003 loss_train: 50.1716 acc_train: 7.9822 acc_val: 0.8037
+Epoch: 0004 loss_train: 49.9522 acc_train: 7.9822 acc_val: 0.8037
+Epoch: 0005 loss_train: 49.7233 acc_train: 7.9810 acc_val: 0.8045
+Epoch: 0006 loss_train: 49.3234 acc_train: 7.9753 acc_val: 0.8037
+Epoch: 0007 loss_train: 48.8571 acc_train: 7.9785 acc_val: 0.8050
+Epoch: 0008 loss_train: 48.6349 acc_train: 7.9825 acc_val: 0.8015
+Epoch: 0009 loss_train: 48.7014 acc_train: 7.9757 acc_val: 0.8023
+Epoch: 0010 loss_train: 48.3551 acc_train: 7.9772 acc_val: 0.8043
+Epoch: 0011 loss_train: 47.8725 acc_train: 7.9909 acc_val: 0.8065
+Epoch: 0012 loss_train: 47.2504 acc_train: 7.9991 acc_val: 0.8033
+Epoch: 0013 loss_train: 47.1913 acc_train: 8.0009 acc_val: 0.8027
+Epoch: 0014 loss_train: 46.9856 acc_train: 8.0106 acc_val: 0.8040
+Epoch: 0015 loss_train: 46.7974 acc_train: 8.0094 acc_val: 0.8040
+Epoch: 0016 loss_train: 46.7112 acc_train: 8.0131 acc_val: 0.8043
+Epoch: 0017 loss_train: 46.5624 acc_train: 8.0175 acc_val: 0.8035
+Epoch: 0018 loss_train: 46.6329 acc_train: 8.0137 acc_val: 0.8055
+Epoch: 0019 loss_train: 46.5042 acc_train: 8.0190 acc_val: 0.8033
+Epoch: 0020 loss_train: 46.4453 acc_train: 8.0197 acc_val: 0.8053
+Epoch: 0021 loss_train: 46.4284 acc_train: 8.0156 acc_val: 0.8057
+Epoch: 0022 loss_train: 46.2903 acc_train: 8.0262 acc_val: 0.8060
+Epoch: 0023 loss_train: 46.3560 acc_train: 8.0231 acc_val: 0.8047
+Epoch: 0024 loss_train: 46.1424 acc_train: 8.0312 acc_val: 0.8057
+Epoch: 0025 loss_train: 46.1955 acc_train: 8.0247 acc_val: 0.8060
+Epoch: 0026 loss_train: 46.2981 acc_train: 8.0290 acc_val: 0.8075
+Epoch: 0027 loss_train: 46.1131 acc_train: 8.0406 acc_val: 0.8047
+Epoch: 0028 loss_train: 45.9806 acc_train: 8.0281 acc_val: 0.8067
+Epoch: 0029 loss_train: 45.9485 acc_train: 8.0287 acc_val: 0.8037
+Epoch: 0030 loss_train: 45.8336 acc_train: 8.0346 acc_val: 0.8043
+Epoch: 0031 loss_train: 45.9492 acc_train: 8.0356 acc_val: 0.8090
+Epoch: 0032 loss_train: 45.5704 acc_train: 8.0456 acc_val: 0.8057
+Epoch: 0033 loss_train: 45.6832 acc_train: 8.0493 acc_val: 0.8030
+Epoch: 0034 loss_train: 45.7274 acc_train: 8.0446 acc_val: 0.8067
+Epoch: 0035 loss_train: 45.4808 acc_train: 8.0471 acc_val: 0.8060
+Epoch: 0036 loss_train: 45.6644 acc_train: 8.0459 acc_val: 0.8087
+Epoch: 0037 loss_train: 45.3645 acc_train: 8.0499 acc_val: 0.8100
+Epoch: 0038 loss_train: 45.3545 acc_train: 8.0599 acc_val: 0.8097
+Epoch: 0039 loss_train: 45.1386 acc_train: 8.0509 acc_val: 0.8070
+Epoch: 0040 loss_train: 45.2642 acc_train: 8.0593 acc_val: 0.8093
+Epoch: 0041 loss_train: 44.9697 acc_train: 8.0577 acc_val: 0.8105
+Epoch: 0042 loss_train: 44.9709 acc_train: 8.0687 acc_val: 0.8080
+Epoch: 0043 loss_train: 45.2385 acc_train: 8.0677 acc_val: 0.8103
+Epoch: 0044 loss_train: 45.0558 acc_train: 8.0634 acc_val: 0.8113
+Epoch: 0045 loss_train: 44.8805 acc_train: 8.0802 acc_val: 0.8095
+Epoch: 0046 loss_train: 44.8032 acc_train: 8.0702 acc_val: 0.8037
+Epoch: 0047 loss_train: 44.7767 acc_train: 8.0627 acc_val: 0.8080
+Epoch: 0048 loss_train: 44.6574 acc_train: 8.0914 acc_val: 0.8073
+Epoch: 0049 loss_train: 44.6445 acc_train: 8.0705 acc_val: 0.8080
+Epoch: 0050 loss_train: 44.4452 acc_train: 8.0762 acc_val: 0.8057
+Optimization Finished! Total time elapsed: 459.716658

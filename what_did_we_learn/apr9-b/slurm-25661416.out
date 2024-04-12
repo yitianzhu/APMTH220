@@ -1,0 +1,58 @@
+/var/spool/slurmd/job25661416/slurm_script: line 3: module: command not found
+/home/gridsan/yzhu/AM220/SubgraphMamba/dataset.py:32: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y = torch.tensor(self.subgraph_labels[idx], dtype=torch.long)
+Current date and time: 2024-04-09 19:13:30.207762
+{'dataset_name': 'hpo_metab', 'learning_rate': 0.0005, 'weight_decay': 0.01, 'batch_size': 32, 'epochs': 50, 'patience': 100, 'hidden_dim': 16, 'mamba_dim': 16, 'seqlength': 3000, 'hops': 2, 'num_classes': 6, 'multilabel': False, 'embeddings_filename': 'graphsaint_gcn_embeddings.pth'}
+[2684]
+{'Lysosomal': 0, 'Energy': 1, 'Amino_Acid': 2, 'Carbohydrate': 3, 'Lipid': 4, 'Glycosylation': 5}
+Epoch: 0001 loss_train: 109.3213 acc_train: 0.1588 acc_val: 0.1639
+Epoch: 0002 loss_train: 109.2394 acc_train: 0.1728 acc_val: 0.1639
+Epoch: 0003 loss_train: 109.1526 acc_train: 0.1661 acc_val: 0.1803
+Epoch: 0004 loss_train: 109.2703 acc_train: 0.1791 acc_val: 0.1516
+Epoch: 0005 loss_train: 109.2371 acc_train: 0.1770 acc_val: 0.1762
+Epoch: 0006 loss_train: 109.0924 acc_train: 0.1864 acc_val: 0.1475
+Epoch: 0007 loss_train: 109.1574 acc_train: 0.1942 acc_val: 0.2377
+Epoch: 0008 loss_train: 108.9787 acc_train: 0.2212 acc_val: 0.1803
+Epoch: 0009 loss_train: 108.9077 acc_train: 0.1942 acc_val: 0.1311
+Epoch: 0010 loss_train: 108.7136 acc_train: 0.2035 acc_val: 0.1680
+Epoch: 0011 loss_train: 108.4933 acc_train: 0.2150 acc_val: 0.1803
+Epoch: 0012 loss_train: 107.1252 acc_train: 0.2332 acc_val: 0.1926
+Epoch: 0013 loss_train: 105.7541 acc_train: 0.2478 acc_val: 0.3443
+Epoch: 0014 loss_train: 105.5727 acc_train: 0.2556 acc_val: 0.2131
+Epoch: 0015 loss_train: 104.6542 acc_train: 0.2395 acc_val: 0.1803
+Epoch: 0016 loss_train: 105.4891 acc_train: 0.2499 acc_val: 0.2049
+Epoch: 0017 loss_train: 103.7217 acc_train: 0.2644 acc_val: 0.2172
+Epoch: 0018 loss_train: 104.6401 acc_train: 0.2764 acc_val: 0.2213
+Epoch: 0019 loss_train: 103.8396 acc_train: 0.2707 acc_val: 0.2295
+Epoch: 0020 loss_train: 103.9811 acc_train: 0.2670 acc_val: 0.2131
+Epoch: 0021 loss_train: 103.6683 acc_train: 0.2842 acc_val: 0.2336
+Epoch: 0022 loss_train: 103.6906 acc_train: 0.2749 acc_val: 0.2008
+Epoch: 0023 loss_train: 103.5570 acc_train: 0.2847 acc_val: 0.2172
+Epoch: 0024 loss_train: 102.9143 acc_train: 0.2910 acc_val: 0.2459
+Epoch: 0025 loss_train: 103.4193 acc_train: 0.2795 acc_val: 0.2008
+Epoch: 0026 loss_train: 103.1770 acc_train: 0.2816 acc_val: 0.1967
+Epoch: 0027 loss_train: 103.4104 acc_train: 0.2780 acc_val: 0.2008
+Epoch: 0028 loss_train: 103.3746 acc_train: 0.2806 acc_val: 0.2008
+Epoch: 0029 loss_train: 103.8559 acc_train: 0.2749 acc_val: 0.1844
+Epoch: 0030 loss_train: 104.6842 acc_train: 0.2868 acc_val: 0.2131
+Epoch: 0031 loss_train: 103.3034 acc_train: 0.2749 acc_val: 0.1926
+Epoch: 0032 loss_train: 103.6200 acc_train: 0.2874 acc_val: 0.2131
+Epoch: 0033 loss_train: 103.6402 acc_train: 0.2884 acc_val: 0.2090
+Epoch: 0034 loss_train: 103.3820 acc_train: 0.2785 acc_val: 0.2049
+Epoch: 0035 loss_train: 103.4467 acc_train: 0.2728 acc_val: 0.2500
+Epoch: 0036 loss_train: 103.6069 acc_train: 0.2832 acc_val: 0.1885
+Epoch: 0037 loss_train: 103.4362 acc_train: 0.2806 acc_val: 0.2459
+Epoch: 0038 loss_train: 103.0299 acc_train: 0.2759 acc_val: 0.2008
+Epoch: 0039 loss_train: 102.6618 acc_train: 0.2842 acc_val: 0.2213
+Epoch: 0040 loss_train: 103.3135 acc_train: 0.2832 acc_val: 0.2172
+Epoch: 0041 loss_train: 102.7789 acc_train: 0.2827 acc_val: 0.1926
+Epoch: 0042 loss_train: 102.6716 acc_train: 0.2936 acc_val: 0.2418
+Epoch: 0043 loss_train: 103.1191 acc_train: 0.2764 acc_val: 0.2090
+Epoch: 0044 loss_train: 103.2365 acc_train: 0.2795 acc_val: 0.2049
+Epoch: 0045 loss_train: 103.3496 acc_train: 0.2816 acc_val: 0.2090
+Epoch: 0046 loss_train: 103.2653 acc_train: 0.2853 acc_val: 0.2008
+Epoch: 0047 loss_train: 103.0742 acc_train: 0.2749 acc_val: 0.1926
+Epoch: 0048 loss_train: 102.7964 acc_train: 0.2894 acc_val: 0.2172
+Epoch: 0049 loss_train: 103.0817 acc_train: 0.2993 acc_val: 0.2172
+Epoch: 0050 loss_train: 103.0009 acc_train: 0.2738 acc_val: 0.2254
+Optimization Finished! Total time elapsed: 234.549303

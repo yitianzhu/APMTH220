@@ -1,0 +1,17 @@
+/var/spool/slurmd/job25650688/slurm_script: line 3: module: command not found
+Name: mamba-ssm
+Version: 1.2.0.post1
+Summary: Mamba state-space model
+Home-page: https://github.com/state-spaces/mamba
+Author: Tri Dao, Albert Gu
+Author-email: tri@tridao.me, agu@cs.cmu.edu
+License: 
+Location: /home/gridsan/yzhu/.local/lib/python3.9/site-packages
+Requires: einops, ninja, packaging, torch, transformers, triton
+Required-by: 
+Epoch: 0001 loss_train: 16.7181 acc_train: 0.4469 acc_val: 0.5510
+Epoch: 0002 loss_train: 15.9424 acc_train: 0.5088 acc_val: 0.5510
+Epoch: 0003 loss_train: 15.9424 acc_train: 0.5088 acc_val: 0.5510
+Epoch: 0004 loss_train: 15.9424 acc_train: 0.5088 acc_val: 0.5510
+Epoch: 0005 loss_train: 15.9424 acc_train: 0.5088 acc_val: 0.5510
+Optimization Finished! Total time elapsed: 4.149045

@@ -1,0 +1,29 @@
+Running Subgraph Mamba on dataset: hpo_neuro
+WARNING: Multilabel classification
+{'Intellectual': 0, 'Genetic_Dementia': 1, 'Neurodegenerative': 2, 'Epilepsy': 3, 'Ataxia': 4, 'CNS_Malformation': 5, 'Neurometabolic': 6, 'Movement': 7, 'Peripheral_Neuropathy': 8, 'Neuromuscular': 9}
+WARNING: Multilabel classification
+{'Intellectual': 0, 'Genetic_Dementia': 1, 'Neurodegenerative': 2, 'Epilepsy': 3, 'Ataxia': 4, 'CNS_Malformation': 5, 'Neurometabolic': 6, 'Movement': 7, 'Peripheral_Neuropathy': 8, 'Neuromuscular': 9}
+WARNING: Multilabel classification
+{'Intellectual': 0, 'Genetic_Dementia': 1, 'Neurodegenerative': 2, 'Epilepsy': 3, 'Ataxia': 4, 'CNS_Malformation': 5, 'Neurometabolic': 6, 'Movement': 7, 'Peripheral_Neuropathy': 8, 'Neuromuscular': 9}
+WARNING: Multilabel classification
+{'Intellectual': 0, 'Genetic_Dementia': 1, 'Neurodegenerative': 2, 'Epilepsy': 3, 'Ataxia': 4, 'CNS_Malformation': 5, 'Neurometabolic': 6, 'Movement': 7, 'Peripheral_Neuropathy': 8, 'Neuromuscular': 9}
+WARNING: Multilabel classification
+{'Intellectual': 0, 'Genetic_Dementia': 1, 'Neurodegenerative': 2, 'Epilepsy': 3, 'Ataxia': 4, 'CNS_Malformation': 5, 'Neurometabolic': 6, 'Movement': 7, 'Peripheral_Neuropathy': 8, 'Neuromuscular': 9}
+WARNING: Multilabel classification
+{'Intellectual': 0, 'Genetic_Dementia': 1, 'Neurodegenerative': 2, 'Epilepsy': 3, 'Ataxia': 4, 'CNS_Malformation': 5, 'Neurometabolic': 6, 'Movement': 7, 'Peripheral_Neuropathy': 8, 'Neuromuscular': 9}
+Traceback (most recent call last):
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn.py", line 220, in <module>
+    best_model=train()
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn.py", line 126, in train
+    out = model(sequence, inclusion, subgraph_size) 
+  File "/state/partition1/llgrid/pkg/anaconda/anaconda3-2023b/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/model.py", line 179, in forward
+    emb = self.fc2(emb)
+  File "/state/partition1/llgrid/pkg/anaconda/anaconda3-2023b/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/state/partition1/llgrid/pkg/anaconda/anaconda3-2023b/lib/python3.9/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (32x15 and 16x10)
+WARNING: Multilabel classification
+{'Intellectual': 0, 'Genetic_Dementia': 1, 'Neurodegenerative': 2, 'Epilepsy': 3, 'Ataxia': 4, 'CNS_Malformation': 5, 'Neurometabolic': 6, 'Movement': 7, 'Peripheral_Neuropathy': 8, 'Neuromuscular': 9}

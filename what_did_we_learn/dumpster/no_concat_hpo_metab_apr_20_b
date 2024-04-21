@@ -1,0 +1,12 @@
+2024-04-20 07:16:01,790:INFO:Current date and time:2024-04-20 07:16:01.790494
+2024-04-20 07:16:01,791:INFO:{'dataset_name': 'hpo_metab', 'learning_rate': 0.001, 'weight_decay': 0.01, 'batch_size': 32, 'augment': 1, 'epochs': 50, 'patience': 100, 'hidden_dim': 16, 'mamba_dim': 16, 'seqlength': 5000, 'hops': 3, 'num_classes': 6, 'multilabel': False, 'embeddings_filename': 'graphsaint_gcn_embeddings.pth'}
+2024-04-20 07:17:13,854:INFO:Current date and time:2024-04-20 07:17:13.854568
+2024-04-20 07:17:13,856:INFO:{'dataset_name': 'hpo_metab', 'learning_rate': 0.001, 'weight_decay': 0.01, 'batch_size': 32, 'augment': 1, 'epochs': 50, 'patience': 100, 'hidden_dim': 16, 'mamba_dim': 16, 'seqlength': 5000, 'hops': 3, 'num_classes': 6, 'multilabel': False, 'embeddings_filename': 'graphsaint_gcn_embeddings.pth'}
+2024-04-20 07:17:23,628:INFO:Epoch: 0001 loss_train: 110.3712 acc_train: 0.2077 acc_val: 0.1885
+2024-04-20 07:17:28,702:INFO:Epoch: 0002 loss_train: 109.1233 acc_train: 0.1874 acc_val: 0.1721
+2024-04-20 07:17:33,385:INFO:Epoch: 0003 loss_train: 108.8500 acc_train: 0.2009 acc_val: 0.1844
+2024-04-20 07:17:38,327:INFO:Epoch: 0004 loss_train: 107.8169 acc_train: 0.2207 acc_val: 0.1762
+2024-04-20 07:17:43,141:INFO:Epoch: 0005 loss_train: 107.1427 acc_train: 0.2145 acc_val: 0.1844
+2024-04-20 07:17:47,784:INFO:Epoch: 0006 loss_train: 105.5571 acc_train: 0.2348 acc_val: 0.1762
+2024-04-20 07:17:52,428:INFO:Epoch: 0007 loss_train: 105.8742 acc_train: 0.2572 acc_val: 0.1967
+2024-04-20 07:17:57,032:INFO:Epoch: 0008 loss_train: 105.6731 acc_train: 0.2447 acc_val: 0.2090

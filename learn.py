@@ -22,7 +22,7 @@ parser.add_argument('--n-layers', type=int, default=2, help='Number of layers (d
 parser.add_argument('--freeze-mamba', action='store_true', help='Freeze Mamba flag')
 parser.add_argument('--zero-one-label', action='store_true', help='Use 0/1 labels for classes')
 parser.add_argument('--graph-conv', action='store_true', help='Use graph convolution layers')
-parser.add_argument('--concat-emb', action='store_true', help='Concatenate embeddings')
+parser.add_argument('--aggregation', type=str, default='None', help='how to aggregate mamba output and embeddings. Options are concat and add')
 parser.add_argument('--logfilename', type=str, default=None, help='Save to log file')
 args = parser.parse_args()
 
@@ -30,15 +30,15 @@ dataset = args.dataset
 zero_one_label = args.zero_one_label
 n_layers = args.n_layers
 graph_conv = args.graph_conv
-concat_emb = args.concat_emb
+aggregation = args.aggregation
 freeze_mamba = args.freeze_mamba
 logfilename = args.logfilename
 if logfilename is None: 
     current_datetime = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    logfilename = f"dumpster/{current_datetime}_{dataset}.log"
+    logfilename = f"what_did_we_learn/dumpster/{current_datetime}_{dataset}.log"
 dataset_filename = f"data/{dataset}/"
 
-logging.basicConfig(filename=f'what_did_we_learn/{logfilename}', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
+logging.basicConfig(filename=f'{logfilename}.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
 if freeze_mamba:
     logging.info("Freezing Mamba layers to compare performance")
@@ -96,7 +96,7 @@ edge_tensor = edge_tensor.to(device)
 
 model = SubgraphMamba(hidden_dim, mamba_dim, num_classes, embeddings, edge_tensor, 
     n_layers=n_layers, dropout=0.2, zero_one_label=zero_one_label, graph_conv=graph_conv, prenorm=True, 
-    concat_emb=concat_emb, freeze_mamba=freeze_mamba)
+    aggregation=aggregation, freeze_mamba=freeze_mamba)
 
 optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay = weight_decay)
 if multilabel:
@@ -152,7 +152,7 @@ def train():
         logging.info(log_str)
 
         val_acc_values.append(acc_val)
-        # torch.save(model.state_dict(), '{}.pth'.format(epoch))
+        torch.save(model.state_dict(), f'{logfilename}/{epoch}.pth')
         if val_acc_values[-1] > max_acc:
             max_acc = val_acc_values[-1]
             best_epoch = epoch
@@ -161,7 +161,7 @@ def train():
             patience_cnt += 1
 
         if patience_cnt == patience:
-            break
+            logging.info("PATIENCE THRESHOLD PASSED; DETECTED OVERFITTING")
 
         '''
         files = glob.glob('*.pth')

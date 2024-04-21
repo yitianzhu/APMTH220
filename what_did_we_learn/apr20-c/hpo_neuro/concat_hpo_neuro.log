@@ -1,0 +1,4 @@
+2024-04-20 17:35:05,782:INFO:Current date and time:2024-04-20 17:35:05.782574
+2024-04-20 17:35:05,784:INFO:{'dataset_name': 'hpo_neuro', 'learning_rate': 0.001, 'weight_decay': 0.01, 'batch_size': 32, 'augment': 1, 'epochs': 500, 'patience': 100, 'hidden_dim': 16, 'mamba_dim': 16, 'seqlength': 5000, 'hops': 3, 'num_classes': 10, 'multilabel': True, 'embeddings_filename': 'graphsaint_gcn_embeddings.pth'}
+2024-04-20 22:18:26,722:INFO:Current date and time:2024-04-20 22:18:26.722963
+2024-04-20 22:18:26,724:INFO:{'dataset_name': 'hpo_neuro', 'learning_rate': 0.001, 'weight_decay': 0.01, 'batch_size': 32, 'augment': 1, 'epochs': 500, 'patience': 100, 'hidden_dim': 16, 'mamba_dim': 16, 'seqlength': 500, 'hops': 0, 'num_classes': 10, 'multilabel': True, 'embeddings_filename': 'graphsaint_gcn_embeddings.pth'}

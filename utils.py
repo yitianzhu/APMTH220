@@ -1,5 +1,10 @@
 import torch 
-
+class Batch:
+    def __init__(self, x, edges):
+        self.x = x
+        self.edge_index = edges
+        self.edge_attr = torch.zeros((self.edge_index.size(1), self.x.size(1)), device=self.x.device) 
+        
 def read_subgraphs(sub_f, split = True):
     '''
     Read subgraphs from file

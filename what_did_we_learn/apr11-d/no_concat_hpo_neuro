@@ -1,0 +1,2 @@
+2024-04-13 05:55:43,353:INFO:Current date and time:2024-04-13 05:55:43.353947
+2024-04-13 05:55:43,354:INFO:{'dataset_name': 'hpo_neuro', 'learning_rate': 0.001, 'weight_decay': 0.01, 'batch_size': 32, 'augment': 10, 'epochs': 50, 'patience': 100, 'hidden_dim': 16, 'mamba_dim': 16, 'seqlength': 5000, 'hops': 3, 'num_classes': 10, 'multilabel': True, 'embeddings_filename': 'graphsaint_gcn_embeddings.pth'}

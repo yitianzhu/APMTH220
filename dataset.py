@@ -35,7 +35,10 @@ class SubgraphDataset(Dataset):
     n: number of nodes in the specific subgraph 
     y: label
     '''
-    y = torch.tensor(self.subgraph_labels[idx], dtype=torch.long)
+    if isinstance(self.subgraph_labels[idx], torch.Tensor):
+      y = self.subgraph_labels[idx].clone().detach()
+    else:
+      y = torch.tensor(self.subgraph_labels[idx], dtype=torch.long)
     sequence = self._get_sequence_ids(idx)
     padding_length = self.seqlength - len(sequence)
     padding_tensor = torch.full((padding_length,), -1)

@@ -1,0 +1,114 @@
+Running Graph Mamba on dataset: hpo_metab
+Logging results in: what_did_we_learn/apr21-b/hpo_metab
+[2684]
+{'Lysosomal': 0, 'Energy': 1, 'Amino_Acid': 2, 'Carbohydrate': 3, 'Lipid': 4, 'Glycosylation': 5}
+Traceback (most recent call last):
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 232, in <module>
+    best_model=train()
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 133, in train
+    save_gradients(model, epoch, i)
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in save_gradients
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in <dictcomp>
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+AttributeError: 'NoneType' object has no attribute 'clone'
+[2684]
+{'Lysosomal': 0, 'Energy': 1, 'Amino_Acid': 2, 'Carbohydrate': 3, 'Lipid': 4, 'Glycosylation': 5}
+Traceback (most recent call last):
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 232, in <module>
+    best_model=train()
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 133, in train
+    save_gradients(model, epoch, i)
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in save_gradients
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in <dictcomp>
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+AttributeError: 'NoneType' object has no attribute 'clone'
+[2684]
+{'Lysosomal': 0, 'Energy': 1, 'Amino_Acid': 2, 'Carbohydrate': 3, 'Lipid': 4, 'Glycosylation': 5}
+Traceback (most recent call last):
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 232, in <module>
+    best_model=train()
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 133, in train
+    save_gradients(model, epoch, i)
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in save_gradients
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in <dictcomp>
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+AttributeError: 'NoneType' object has no attribute 'clone'
+Running Graph Mamba on dataset: hpo_neuro
+Logging results in: what_did_we_learn/apr21-b/hpo_neuro
+WARNING: Multilabel classification
+{'Intellectual': 0, 'Genetic_Dementia': 1, 'Neurodegenerative': 2, 'Epilepsy': 3, 'Ataxia': 4, 'CNS_Malformation': 5, 'Neurometabolic': 6, 'Movement': 7, 'Peripheral_Neuropathy': 8, 'Neuromuscular': 9}
+Traceback (most recent call last):
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 232, in <module>
+    best_model=train()
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 133, in train
+    save_gradients(model, epoch, i)
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in save_gradients
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in <dictcomp>
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+AttributeError: 'NoneType' object has no attribute 'clone'
+WARNING: Multilabel classification
+{'Intellectual': 0, 'Genetic_Dementia': 1, 'Neurodegenerative': 2, 'Epilepsy': 3, 'Ataxia': 4, 'CNS_Malformation': 5, 'Neurometabolic': 6, 'Movement': 7, 'Peripheral_Neuropathy': 8, 'Neuromuscular': 9}
+Traceback (most recent call last):
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 232, in <module>
+    best_model=train()
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 133, in train
+    save_gradients(model, epoch, i)
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in save_gradients
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in <dictcomp>
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+AttributeError: 'NoneType' object has no attribute 'clone'
+WARNING: Multilabel classification
+{'Intellectual': 0, 'Genetic_Dementia': 1, 'Neurodegenerative': 2, 'Epilepsy': 3, 'Ataxia': 4, 'CNS_Malformation': 5, 'Neurometabolic': 6, 'Movement': 7, 'Peripheral_Neuropathy': 8, 'Neuromuscular': 9}
+Traceback (most recent call last):
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 232, in <module>
+    best_model=train()
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 133, in train
+    save_gradients(model, epoch, i)
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in save_gradients
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in <dictcomp>
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+AttributeError: 'NoneType' object has no attribute 'clone'
+Running Graph Mamba on dataset: ppi_bp
+Logging results in: what_did_we_learn/apr21-b/ppi_bp
+[9339]
+{'metabolism': 0, 'development': 1, 'signal_transduction': 2, 'stress_death': 3, 'cell_org': 4, 'transport': 5}
+Traceback (most recent call last):
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 232, in <module>
+    best_model=train()
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 133, in train
+    save_gradients(model, epoch, i)
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in save_gradients
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in <dictcomp>
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+AttributeError: 'NoneType' object has no attribute 'clone'
+[9339]
+{'metabolism': 0, 'development': 1, 'signal_transduction': 2, 'stress_death': 3, 'cell_org': 4, 'transport': 5}
+Traceback (most recent call last):
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 232, in <module>
+    best_model=train()
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 133, in train
+    save_gradients(model, epoch, i)
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in save_gradients
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in <dictcomp>
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+AttributeError: 'NoneType' object has no attribute 'clone'
+[9339]
+{'metabolism': 0, 'development': 1, 'signal_transduction': 2, 'stress_death': 3, 'cell_org': 4, 'transport': 5}
+Traceback (most recent call last):
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 232, in <module>
+    best_model=train()
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 133, in train
+    save_gradients(model, epoch, i)
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in save_gradients
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 190, in <dictcomp>
+    gradients = {name: parameter.grad.clone() for name, parameter in model.named_parameters() if parameter.requires_grad}
+AttributeError: 'NoneType' object has no attribute 'clone'

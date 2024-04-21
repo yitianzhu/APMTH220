@@ -1,0 +1,5 @@
+2024-04-20 07:01:55,940:INFO:Current date and time:2024-04-20 07:01:55.940138
+2024-04-20 07:01:55,941:INFO:{'dataset_name': 'hpo_metab', 'learning_rate': 0.001, 'weight_decay': 0.01, 'batch_size': 32, 'augment': 1, 'epochs': 50, 'patience': 100, 'hidden_dim': 16, 'mamba_dim': 16, 'seqlength': 5000, 'hops': 3, 'num_classes': 6, 'multilabel': False, 'embeddings_filename': 'graphsaint_gcn_embeddings.pth'}
+2024-04-20 07:05:57,479:INFO:Current date and time:2024-04-20 07:05:57.479256
+2024-04-20 07:05:57,479:INFO:{'dataset_name': 'hpo_metab', 'learning_rate': 0.001, 'weight_decay': 0.01, 'batch_size': 32, 'augment': 1, 'epochs': 50, 'patience': 100, 'hidden_dim': 16, 'mamba_dim': 16, 'seqlength': 5000, 'hops': 3, 'num_classes': 6, 'multilabel': False, 'embeddings_filename': 'graphsaint_gcn_embeddings.pth'}
+2024-04-20 07:06:06,253:INFO:Epoch: 0001 loss_train: 113.1037 acc_train: 0.1832 acc_val: 0.2295

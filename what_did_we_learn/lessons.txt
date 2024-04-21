@@ -53,13 +53,39 @@ Ok nevermind, (1) does work. \
 here's the takeaways for hpo_metab
 * Mamba does help (1 mamba layer vs frozen mamba weights) (66% vs 36% training) 
 * More mamba layers makes huge difference (1 vs 2 vs 4 mamba layers) (66% vs 90% vs 100% training)
-* zero-one labeling seems to help a bit? (no label vs label) (63% vs 66%)
+* zero-one labeling seems to help a bit? (no label vs label) (63% vs 66% training)
 * code failed for no concatentation, my bad
-* base GCN layer is needed, (no gcn vs gcn) (48.9% vs 66%)
+* base GCN layer is needed, (no gcn vs gcn) (48.9% vs 66% training)
 PROBLEM: totally overfitting to training data. I never got above 30% validation!
 
 here's the takeaways for hpo_neuro 
-* increasing layers helps training but hurts validation scores. mamba layers (1 2 4) train (84% 88% 95%) val (79% 75% 73%)
-* mamba makes a difference though: if you freeze mamba layers training accuracy doesnt change (79% to 80%). final trainig accuracy (no mamba vs mamba) (80% vs 84%)
-* zero-one labeling doesn't seem to help much
+* increasing layers helps training but hurts validation scores. mamba layers (1 2 4) training (84% 88% 95%) val (79% 75% 73%)
+* mamba makes a difference though: if you freeze mamba layers training accuracy doesnt change (79% to 80%). final training accuracy (no mamba vs mamba) (80% vs 84%)
+* zero-one labeling doesn't seem to help much (84% training for both)
 PROBLEM: overfitting here too! 
+
+Maybe try using a new dataset like synthetic data. Or maybe try mamba without augmentation. 
+
+04/17 Meeting with Jie 
+* compare graph mamba on our datasets as a baseline 
+	* dont look at neighborhood. naively run GMB
+* augmentation - jie doesnt think this is critical 
+bc graphmamba was run on benchmark dataset 
+and mamba is rly small compared to transformers
+so he doesnt think augmentation is the issue 
+* noise - just keep the way that i am shuffling, 
+and also try the original implementation 
+* neighborhood - try with and without 
+* Try GCN vs gated GCN 
+* play with codebase of graphmamba & make changes to GMB
+	Run MPNN on the entire background graph 
+	take MPNN output masked by subgraph inclusion and put those into GMB 
+	(see algorithm 2;) connection is ADD, not APPEND
+* for h_t we let B = 0 when x_t outside subgraph 
+
+
+04/20
+You should use apr20-e, these are just graphmamba. Looks like 1 layer is doing better. 
+implemented subgraphmamba apr20-a but Looks like 2 hops is doing okay as in training accuracy outperforms but validation is eh 
+
+saving gradients in apr21-b for graphmamba and apr21-c for subgraph neighborhood implementation 

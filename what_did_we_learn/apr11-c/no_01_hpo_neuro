@@ -48,3 +48,6 @@
 2024-04-12 09:32:42,436:INFO:Epoch: 0046 loss_train: 376.6202 acc_train: 0.8358 acc_val: 0.8073
 2024-04-12 09:34:38,236:INFO:Epoch: 0047 loss_train: 375.8847 acc_train: 0.8363 acc_val: 0.8089
 2024-04-12 09:36:35,974:INFO:Epoch: 0048 loss_train: 374.3193 acc_train: 0.8370 acc_val: 0.7923
+2024-04-12 09:38:32,785:INFO:Epoch: 0049 loss_train: 373.8714 acc_train: 0.8373 acc_val: 0.8027
+2024-04-12 09:40:29,382:INFO:Epoch: 0050 loss_train: 372.4574 acc_train: 0.8373 acc_val: 0.7994
+2024-04-12 09:40:29,383:INFO:Optimization Finished! Total time elapsed: 5845.058829

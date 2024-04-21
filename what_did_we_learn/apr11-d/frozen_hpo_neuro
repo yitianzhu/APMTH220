@@ -1,0 +1,54 @@
+2024-04-13 02:42:02,983:INFO:Freezing Mamba layers to compare performance
+2024-04-13 02:42:03,329:INFO:Current date and time:2024-04-13 02:42:03.329883
+2024-04-13 02:42:03,329:INFO:{'dataset_name': 'hpo_neuro', 'learning_rate': 0.001, 'weight_decay': 0.01, 'batch_size': 32, 'augment': 10, 'epochs': 50, 'patience': 100, 'hidden_dim': 16, 'mamba_dim': 16, 'seqlength': 5000, 'hops': 3, 'num_classes': 10, 'multilabel': True, 'embeddings_filename': 'graphsaint_gcn_embeddings.pth'}
+2024-04-13 02:44:03,476:INFO:Epoch: 0001 loss_train: 510.6135 acc_train: 0.7838 acc_val: 0.8037
+2024-04-13 02:45:59,717:INFO:Epoch: 0002 loss_train: 492.1256 acc_train: 0.7982 acc_val: 0.8037
+2024-04-13 02:47:57,656:INFO:Epoch: 0003 loss_train: 488.5258 acc_train: 0.7979 acc_val: 0.8045
+2024-04-13 02:49:56,107:INFO:Epoch: 0004 loss_train: 483.5543 acc_train: 0.7976 acc_val: 0.8040
+2024-04-13 02:51:53,353:INFO:Epoch: 0005 loss_train: 479.4387 acc_train: 0.7982 acc_val: 0.8040
+2024-04-13 02:53:49,161:INFO:Epoch: 0006 loss_train: 473.2495 acc_train: 0.7998 acc_val: 0.8003
+2024-04-13 02:55:47,034:INFO:Epoch: 0007 loss_train: 469.5098 acc_train: 0.8008 acc_val: 0.8063
+2024-04-13 02:57:45,755:INFO:Epoch: 0008 loss_train: 467.3299 acc_train: 0.8012 acc_val: 0.8064
+2024-04-13 02:59:44,183:INFO:Epoch: 0009 loss_train: 466.6040 acc_train: 0.8014 acc_val: 0.8065
+2024-04-13 03:01:41,347:INFO:Epoch: 0010 loss_train: 465.2450 acc_train: 0.8015 acc_val: 0.8036
+2024-04-13 03:03:37,121:INFO:Epoch: 0011 loss_train: 464.8898 acc_train: 0.8016 acc_val: 0.8048
+2024-04-13 03:05:32,805:INFO:Epoch: 0012 loss_train: 464.3182 acc_train: 0.8013 acc_val: 0.8041
+2024-04-13 03:07:30,208:INFO:Epoch: 0013 loss_train: 463.5777 acc_train: 0.8018 acc_val: 0.8071
+2024-04-13 03:09:25,554:INFO:Epoch: 0014 loss_train: 462.8745 acc_train: 0.8017 acc_val: 0.8062
+2024-04-13 03:11:23,578:INFO:Epoch: 0015 loss_train: 462.4271 acc_train: 0.8019 acc_val: 0.8046
+2024-04-13 03:13:21,189:INFO:Epoch: 0016 loss_train: 461.4525 acc_train: 0.8021 acc_val: 0.8071
+2024-04-13 03:15:19,701:INFO:Epoch: 0017 loss_train: 460.9480 acc_train: 0.8022 acc_val: 0.8085
+2024-04-13 03:17:17,269:INFO:Epoch: 0018 loss_train: 460.4924 acc_train: 0.8021 acc_val: 0.8088
+2024-04-13 03:19:15,612:INFO:Epoch: 0019 loss_train: 459.6443 acc_train: 0.8024 acc_val: 0.8046
+2024-04-13 03:21:13,558:INFO:Epoch: 0020 loss_train: 459.1822 acc_train: 0.8025 acc_val: 0.8079
+2024-04-13 03:23:10,788:INFO:Epoch: 0021 loss_train: 457.9273 acc_train: 0.8030 acc_val: 0.8064
+2024-04-13 03:25:06,101:INFO:Epoch: 0022 loss_train: 457.5496 acc_train: 0.8030 acc_val: 0.8084
+2024-04-13 03:27:00,471:INFO:Epoch: 0023 loss_train: 457.2696 acc_train: 0.8027 acc_val: 0.8074
+2024-04-13 03:28:55,644:INFO:Epoch: 0024 loss_train: 456.7860 acc_train: 0.8029 acc_val: 0.8076
+2024-04-13 03:30:52,792:INFO:Epoch: 0025 loss_train: 456.8659 acc_train: 0.8029 acc_val: 0.8061
+2024-04-13 03:32:50,505:INFO:Epoch: 0026 loss_train: 456.5966 acc_train: 0.8030 acc_val: 0.8031
+2024-04-13 03:34:44,781:INFO:Epoch: 0027 loss_train: 456.0443 acc_train: 0.8031 acc_val: 0.8054
+2024-04-13 03:36:38,614:INFO:Epoch: 0028 loss_train: 456.6675 acc_train: 0.8029 acc_val: 0.8064
+2024-04-13 03:38:33,293:INFO:Epoch: 0029 loss_train: 455.7853 acc_train: 0.8033 acc_val: 0.8080
+2024-04-13 03:40:28,038:INFO:Epoch: 0030 loss_train: 456.1589 acc_train: 0.8030 acc_val: 0.8074
+2024-04-13 03:42:23,139:INFO:Epoch: 0031 loss_train: 455.8417 acc_train: 0.8034 acc_val: 0.8046
+2024-04-13 03:44:17,001:INFO:Epoch: 0032 loss_train: 455.6873 acc_train: 0.8032 acc_val: 0.8074
+2024-04-13 03:46:12,068:INFO:Epoch: 0033 loss_train: 455.6835 acc_train: 0.8032 acc_val: 0.8052
+2024-04-13 03:48:06,604:INFO:Epoch: 0034 loss_train: 455.6099 acc_train: 0.8033 acc_val: 0.8059
+2024-04-13 03:50:00,475:INFO:Epoch: 0035 loss_train: 455.4392 acc_train: 0.8034 acc_val: 0.8057
+2024-04-13 03:51:53,747:INFO:Epoch: 0036 loss_train: 455.2023 acc_train: 0.8032 acc_val: 0.8053
+2024-04-13 03:53:48,903:INFO:Epoch: 0037 loss_train: 455.2397 acc_train: 0.8034 acc_val: 0.8061
+2024-04-13 03:55:46,469:INFO:Epoch: 0038 loss_train: 454.6153 acc_train: 0.8035 acc_val: 0.8042
+2024-04-13 03:57:41,700:INFO:Epoch: 0039 loss_train: 454.7387 acc_train: 0.8035 acc_val: 0.8067
+2024-04-13 03:59:36,643:INFO:Epoch: 0040 loss_train: 454.8462 acc_train: 0.8040 acc_val: 0.8076
+2024-04-13 04:01:32,188:INFO:Epoch: 0041 loss_train: 454.3780 acc_train: 0.8038 acc_val: 0.8076
+2024-04-13 04:03:29,402:INFO:Epoch: 0042 loss_train: 454.3313 acc_train: 0.8040 acc_val: 0.8053
+2024-04-13 04:05:27,058:INFO:Epoch: 0043 loss_train: 454.4300 acc_train: 0.8037 acc_val: 0.8051
+2024-04-13 04:07:25,003:INFO:Epoch: 0044 loss_train: 454.2043 acc_train: 0.8034 acc_val: 0.8070
+2024-04-13 04:09:18,514:INFO:Epoch: 0045 loss_train: 454.3182 acc_train: 0.8038 acc_val: 0.8061
+2024-04-13 04:11:13,135:INFO:Epoch: 0046 loss_train: 453.7899 acc_train: 0.8040 acc_val: 0.8077
+2024-04-13 04:13:07,964:INFO:Epoch: 0047 loss_train: 453.7159 acc_train: 0.8040 acc_val: 0.8066
+2024-04-13 04:15:02,569:INFO:Epoch: 0048 loss_train: 453.2552 acc_train: 0.8042 acc_val: 0.8073
+2024-04-13 04:16:57,240:INFO:Epoch: 0049 loss_train: 453.6958 acc_train: 0.8041 acc_val: 0.8058
+2024-04-13 04:18:51,613:INFO:Epoch: 0050 loss_train: 453.3156 acc_train: 0.8044 acc_val: 0.8054
+2024-04-13 04:18:51,614:INFO:Optimization Finished! Total time elapsed: 5804.443804

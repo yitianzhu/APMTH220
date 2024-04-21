@@ -1,9 +1,10 @@
 #!/bin/bash
 #SBATCH --gres=gpu:volta:1
-DATE_FOLDER="apr21-b"
+DATE_FOLDER="apr21-d"
 mkdir -p "what_did_we_learn/$DATE_FOLDER"
 
 DATASET="hpo_metab"
+DATASET_NAME="HPO Metab"
 RESULT_FOLDER="what_did_we_learn/$DATE_FOLDER/$DATASET"
 mkdir -p "$RESULT_FOLDER"
 echo "Running Graph Mamba on dataset: $DATASET"
@@ -13,11 +14,12 @@ mkdir -p "$RESULT_FOLDER/1layer_$DATASET"
 python learn_graph_mamba_savegrad.py --dataset "$DATASET" --logfilename "$RESULT_FOLDER/1layer_$DATASET" --n-layers 1 --epochs 100
 mkdir -p "$RESULT_FOLDER/2layer_$DATASET"
 python learn_graph_mamba_savegrad.py --dataset "$DATASET" --logfilename "$RESULT_FOLDER/2layer_$DATASET" --n-layers 2 --epochs 100
-mkdir -p "$RESULT_FOLDER/4layer_$DATASET"
-python learn_graph_mamba_savegrad.py --dataset "$DATASET" --logfilename "$RESULT_FOLDER/4layer_$DATASET" --n-layers 4 --epochs 100
-
+python plot_train_val.py --dataset-name "$DATASET_NAME" --result-folder "$RESULT_FOLDER" 
+python plot_param_diff_norms.py --dataset-name "$DATASET_NAME" --result-folder "$RESULT_FOLDER" --plot-downstream
+python plot_param_grads.py --dataset-name "$DATASET_NAME" --result-folder "$RESULT_FOLDER" --plot-downstream
 
 DATASET="hpo_neuro"
+DATASET_NAME="HPO Neuro"
 RESULT_FOLDER="what_did_we_learn/$DATE_FOLDER/$DATASET"
 mkdir -p "$RESULT_FOLDER"
 echo "Running Graph Mamba on dataset: $DATASET"
@@ -27,11 +29,12 @@ mkdir -p "$RESULT_FOLDER/1layer_$DATASET"
 python learn_graph_mamba_savegrad.py --dataset "$DATASET" --logfilename "$RESULT_FOLDER/1layer_$DATASET" --n-layers 1 --epochs 100
 mkdir -p "$RESULT_FOLDER/2layer_$DATASET"
 python learn_graph_mamba_savegrad.py --dataset "$DATASET" --logfilename "$RESULT_FOLDER/2layer_$DATASET" --n-layers 2 --epochs 100
-mkdir -p "$RESULT_FOLDER/4layer_$DATASET"
-python learn_graph_mamba_savegrad.py --dataset "$DATASET" --logfilename "$RESULT_FOLDER/4layer_$DATASET" --n-layers 4 --epochs 100
-
+python plot_train_val.py --dataset-name "$DATASET_NAME" --result-folder "$RESULT_FOLDER" 
+python plot_param_diff_norms.py --dataset-name "$DATASET_NAME" --result-folder "$RESULT_FOLDER" --plot-downstream
+python plot_param_grads.py --dataset-name "$DATASET_NAME" --result-folder "$RESULT_FOLDER" --plot-downstream
 
 DATASET="ppi_bp"
+DATASET_NAME="PPI BP"
 RESULT_FOLDER="what_did_we_learn/$DATE_FOLDER/$DATASET"
 mkdir -p "$RESULT_FOLDER"
 echo "Running Graph Mamba on dataset: $DATASET"
@@ -41,5 +44,6 @@ mkdir -p "$RESULT_FOLDER/1layer_$DATASET"
 python learn_graph_mamba_savegrad.py --dataset "$DATASET" --logfilename "$RESULT_FOLDER/1layer_$DATASET" --n-layers 1 --epochs 100
 mkdir -p "$RESULT_FOLDER/2layer_$DATASET"
 python learn_graph_mamba_savegrad.py --dataset "$DATASET" --logfilename "$RESULT_FOLDER/2layer_$DATASET" --n-layers 2 --epochs 100
-mkdir -p "$RESULT_FOLDER/4layer_$DATASET"
-python learn_graph_mamba_savegrad.py --dataset "$DATASET" --logfilename "$RESULT_FOLDER/4layer_$DATASET" --n-layers 4 --epochs 100
+python plot_train_val.py --dataset-name "$DATASET_NAME" --result-folder "$RESULT_FOLDER" 
+python plot_param_diff_norms.py --dataset-name "$DATASET_NAME" --result-folder "$RESULT_FOLDER" --plot-downstream
+python plot_param_grads.py --dataset-name "$DATASET_NAME" --result-folder "$RESULT_FOLDER" --plot-downstream

@@ -1,0 +1,8 @@
+2024-04-21 12:39:40,553:INFO:Current date and time:2024-04-21 12:39:40.553132
+2024-04-21 12:39:40,554:INFO:{'dataset_name': 'hpo_metab', 'learning_rate': 0.001, 'weight_decay': 0.01, 'batch_size': 32, 'augment': 1, 'epochs': 5, 'patience': 100, 'hidden_dim': 16, 'mamba_dim': 16, 'seqlength': 500, 'hops': 0, 'num_classes': 6, 'multilabel': False, 'embeddings_filename': 'graphsaint_gcn_embeddings.pth'}
+2024-04-21 12:39:56,739:INFO:Epoch: 0001 loss_train: 108.0835 acc_train: 0.2212 acc_val: 0.1803
+2024-04-21 12:40:11,537:INFO:Epoch: 0002 loss_train: 107.7771 acc_train: 0.2249 acc_val: 0.1762
+2024-04-21 12:40:26,365:INFO:Epoch: 0003 loss_train: 106.9037 acc_train: 0.2374 acc_val: 0.1762
+2024-04-21 12:40:41,172:INFO:Epoch: 0004 loss_train: 107.2191 acc_train: 0.2400 acc_val: 0.1844
+2024-04-21 12:40:56,015:INFO:Epoch: 0005 loss_train: 106.7023 acc_train: 0.2452 acc_val: 0.1967
+2024-04-21 12:40:56,025:INFO:Optimization Finished! Total time elapsed: 74.476438

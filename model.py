@@ -194,7 +194,12 @@ class GraphMamba(nn.Module):
         self.attn_layers=nn.ModuleList()
         for _ in range(n_layers):
             self.attn_layers.append(GraphMambaLayer(hidden_dim, dropout=dropout, attn_dropout=attn_dropout, layer_norm=layer_norm, batch_norm=batch_norm))
-        self.fc2 = nn.Linear(hidden_dim, num_classes)
+        
+        # Downstream MLP 
+        self.downstream_layers = nn.ModuleList()
+        self.downstream_layers.append(nn.Linear(hidden_dim, 2*hidden_dim))
+        self.downstream_layers.append(nn.Linear(2*hidden_dim, hidden_dim))
+        self.downstream_layers.append(nn.Linear(hidden_dim, num_classes))
 
     def forward(self, sequence, inclusion):
         if self.initial_projection: 
@@ -205,15 +210,20 @@ class GraphMamba(nn.Module):
         # use Graph Mamba Layer blocks 
         for layer in self.attn_layers: 
             emb = layer(emb, self.edge_tensor, sequence)
-        emb = emb[sequence]
 
+        return self.downstream_mlp(emb, sequence, inclusion)
+    
+    def downstream_mlp(self, emb, sequence, inclusion):
         # Final projection to classes 
+        emb = emb[sequence]
         mask=inclusion.unsqueeze(-1)
         emb = emb * mask
         emb = torch.sum(emb, dim=1) / (torch.sum(mask, dim=1)+1e-5)
-        emb = self.fc2(emb)
-        return emb 
 
+        for layer in self.downstream_layers:
+            emb = layer(emb)
+            emb = F.relu(emb)
+        return emb 
 class SubgraphMamba(nn.Module):
     def __init__(self, hidden_dim, mamba_dim, num_classes, embeddings, edge_tensor, 
     n_layers = 2, dropout=0.2, zero_one_label=False, graph_conv=False, prenorm=True, 

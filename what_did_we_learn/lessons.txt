@@ -89,3 +89,5 @@ You should use apr20-e, these are just graphmamba. Looks like 1 layer is doing b
 implemented subgraphmamba apr20-a but Looks like 2 hops is doing okay as in training accuracy outperforms but validation is eh 
 
 saving gradients in apr21-b for graphmamba and apr21-c for subgraph neighborhood implementation 
+
+adding a MLP head at the end, saving gradients in apr21-d for graphmamba and apr21-e for subgraphmamba 

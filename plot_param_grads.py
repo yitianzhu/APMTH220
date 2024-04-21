@@ -1,27 +1,24 @@
 import torch 
 import numpy as np 
 from matplotlib import pyplot as plt 
+import argparse
+import os
+parser = argparse.ArgumentParser(description='Plotting Parameter Gradients')
+parser.add_argument('--dataset-name', type=str, required=True, help='Dataset string for plot')
+parser.add_argument('--result-folder', type=str, required=True, help='Filepath for saving image')
+parser.add_argument('--checking-hops', action='store_true', help='Are you comparing hops for subgraphs?')
+parser.add_argument('--plot-downstream', action='store_true', help='Do you want the downstream task grads plotted?')
+
+
+args = parser.parse_args()
+dataset_name = args.dataset_name
+save_path = args.result_folder+'/'
+checking_hops = args.checking_hops
+plot_downstream = args.plot_downstream 
+dataset = args.result_folder.split('/')[-1]
 
 epochs=100 
-
-n_layers=1
-n_hops = 1
-checking_hops = True 
-save_path = 'what_did_we_learn/apr21-c/hpo_metab/'
-dataset_name='HPO Metab'
-
-folder_path = f'{save_path}{n_layers}layer_hpo_metab/'
-if checking_hops: 
-    folder_path = f'{save_path}{n_hops}hop_hpo_metab/'
-
-gradient_dict = {
-    'attn_layers.0':{'local_model':np.zeros(epochs), 'self_attn':np.zeros(epochs), 'ff_linear':np.zeros(epochs)},
-    'attn_layers.1':{'local_model':np.zeros(epochs), 'self_attn':np.zeros(epochs), 'ff_linear':np.zeros(epochs)},
-    'attn_layers.2':{'local_model':np.zeros(epochs), 'self_attn':np.zeros(epochs), 'ff_linear':np.zeros(epochs)},
-    'attn_layers.3':{'local_model':np.zeros(epochs), 'self_attn':np.zeros(epochs), 'ff_linear':np.zeros(epochs)}}
-
-plotting_dict = {'local_model':'MPNN Backbone', 'self_attn': 'Mamba Block', 'ff_linear': 'Feed Forward Block'}
-
+plotting_dict = {'local_model':'MPNN Backbone', 'self_attn': 'Mamba Block', 'ff_linear': 'Feed Forward Block', 'downstream_layers':'Downstream MLP'}
 def dict_location(param_name):
     if 'local_model.bn_edge_e.' in param_name: # because edge attributes are all 0
         return None, None 
@@ -31,32 +28,12 @@ def dict_location(param_name):
                 if key2 in param_name:
                     return key1, key2
     return None, None 
-
-for epoch in range(epochs): 
-    batch = 0
-    get_file=True
-    while get_file: 
-        try: 
-            filename = f'{folder_path}gradients_{epoch}_{batch}.pth'
-            gradients = torch.load(filename)
-            for param_name in gradients.keys(): 
-                key1, key2 = dict_location(param_name)
-                if key1 is not None and key2 is not None: 
-                    grads = gradients[param_name].float() 
-                    gradient_dict[key1][key2][epoch]+=torch.norm(grads, p='fro').item() 
-            batch+=1
-        except FileNotFoundError:
-            get_file=False
-
-# just creating cutoff value for plotting 
-for key1 in gradient_dict.keys():
-    for key2 in gradient_dict[key1].keys(): 
-        gradient_dict[key1][key2] = np.clip(gradient_dict[key1][key2], None, 1e7)
-
-def plot_dynamics(key1, filename,title):
+def plot_dynamics(key1, filename,title,show_downstream=False):
     plt.figure()
     for key2 in gradient_dict[key1].keys():
         plt.plot(gradient_dict[key1][key2], label=plotting_dict[key2])
+    if plot_downstream and show_downstream: 
+        plt.plot(gradient_dict['downstream_layers']['downstream_layers'], label=plotting_dict['downstream_layers'])
     plt.legend()
     plt.suptitle('Gradient Norms over Epochs')
     plt.title(title, fontsize=16)
@@ -66,11 +43,53 @@ def plot_dynamics(key1, filename,title):
     # plt.ylim((0,y_max_value+5))
     plt.savefig(f'{save_path}{filename}.png')
 
+layers_or_hops=[1,2,4]
 if checking_hops: 
-    plot_dynamics(f'attn_layers.0',f'{n_hops}hop_gradients',f'{dataset_name}, {n_hops}-Hop model, GMB block 0')
-else:
-    for layer in range(n_layers): 
-        plot_dynamics(f'attn_layers.{layer}',f'{n_layers}layer_gradients_{layer}',f'{dataset_name}, {n_layers}-Layer model, GMB block {layer}')
+    layers_or_hops=[1,2,3]
+
+for k in layers_or_hops: 
+    folder_path = f'{save_path}{k}layer_{dataset}/'
+    if checking_hops: 
+        folder_path = f'{save_path}{k}hop_{dataset}/'
+
+    if not os.path.exists(folder_path):
+        print(folder_path, 'does not exist.')
+        continue
+
+    gradient_dict = {
+        'attn_layers.0':{'local_model':np.zeros(epochs), 'self_attn':np.zeros(epochs), 'ff_linear':np.zeros(epochs)},
+        'attn_layers.1':{'local_model':np.zeros(epochs), 'self_attn':np.zeros(epochs), 'ff_linear':np.zeros(epochs)},
+        'attn_layers.2':{'local_model':np.zeros(epochs), 'self_attn':np.zeros(epochs), 'ff_linear':np.zeros(epochs)},
+        'attn_layers.3':{'local_model':np.zeros(epochs), 'self_attn':np.zeros(epochs), 'ff_linear':np.zeros(epochs)},
+        'downstream_layers':{'downstream_layers':np.zeros(epochs)}
+        }
+
+    for epoch in range(epochs): 
+        batch = 0
+        get_file=True
+        while get_file: 
+            try: 
+                filename = f'{folder_path}gradients_{epoch}_{batch}.pth'
+                gradients = torch.load(filename)
+                for param_name in gradients.keys(): 
+                    key1, key2 = dict_location(param_name)
+                    if key1 is not None and key2 is not None: 
+                        grads = gradients[param_name].float() 
+                        gradient_dict[key1][key2][epoch]+=torch.norm(grads, p='fro').item() 
+                batch+=1
+            except FileNotFoundError:
+                get_file=False
+
+    # just creating cutoff value for plotting 
+    # for key1 in gradient_dict.keys():
+        # for key2 in gradient_dict[key1].keys(): 
+            # gradient_dict[key1][key2] = np.clip(gradient_dict[key1][key2], None, 1e7)
+
+    if checking_hops: 
+        plot_dynamics(f'attn_layers.0',f'{k}hop_gradients',f'{dataset_name}, {k}-Hop model, GMB block 0', show_downstream=True)
+    else:
+        for layer in range(k): 
+            plot_dynamics(f'attn_layers.{layer}',f'{k}layer_gradients_{layer}',f'{dataset_name}, {k}-Layer model, GMB block {layer}',show_downstream=(layer==k-1))
 
 '''
 # graph convolutions 

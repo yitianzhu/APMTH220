@@ -1,0 +1,48 @@
+Running Graph Mamba with hops on dataset: hpo_metab
+Logging results in: what_did_we_learn/apr21-e/hpo_metab
+[2684]
+{'Lysosomal': 0, 'Energy': 1, 'Amino_Acid': 2, 'Carbohydrate': 3, 'Lipid': 4, 'Glycosylation': 5}
+[2684]
+{'Lysosomal': 0, 'Energy': 1, 'Amino_Acid': 2, 'Carbohydrate': 3, 'Lipid': 4, 'Glycosylation': 5}
+[2684]
+{'Lysosomal': 0, 'Energy': 1, 'Amino_Acid': 2, 'Carbohydrate': 3, 'Lipid': 4, 'Glycosylation': 5}
+what_did_we_learn/apr21-e/hpo_metab/1layer_hpo_metab/ does not exist.
+what_did_we_learn/apr21-e/hpo_metab/2layer_hpo_metab/ does not exist.
+what_did_we_learn/apr21-e/hpo_metab/4layer_hpo_metab/ does not exist.
+what_did_we_learn/apr21-e/hpo_metab/1layer_hpo_metab/ does not exist.
+what_did_we_learn/apr21-e/hpo_metab/2layer_hpo_metab/ does not exist.
+what_did_we_learn/apr21-e/hpo_metab/4layer_hpo_metab/ does not exist.
+Running Graph Mamba with hops on dataset: hpo_neruo
+Logging results in: what_did_we_learn/apr21-e/hpo_neruo
+Traceback (most recent call last):
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 43, in <module>
+    with open(dataset_filename+'config.json', 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/hpo_neruo/config.json'
+Traceback (most recent call last):
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 43, in <module>
+    with open(dataset_filename+'config.json', 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/hpo_neruo/config.json'
+Traceback (most recent call last):
+  File "/home/gridsan/yzhu/AM220/SubgraphMamba/learn_graph_mamba_savegrad.py", line 43, in <module>
+    with open(dataset_filename+'config.json', 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/hpo_neruo/config.json'
+what_did_we_learn/apr21-e/hpo_neruo/1layer_hpo_neruo/ does not exist.
+what_did_we_learn/apr21-e/hpo_neruo/2layer_hpo_neruo/ does not exist.
+what_did_we_learn/apr21-e/hpo_neruo/4layer_hpo_neruo/ does not exist.
+what_did_we_learn/apr21-e/hpo_neruo/1layer_hpo_neruo/ does not exist.
+what_did_we_learn/apr21-e/hpo_neruo/2layer_hpo_neruo/ does not exist.
+what_did_we_learn/apr21-e/hpo_neruo/4layer_hpo_neruo/ does not exist.
+Running Graph Mamba with hops on dataset: ppi_bp
+Logging results in: what_did_we_learn/apr21-e/ppi_bp
+[9339]
+{'metabolism': 0, 'development': 1, 'signal_transduction': 2, 'stress_death': 3, 'cell_org': 4, 'transport': 5}
+[9339]
+{'metabolism': 0, 'development': 1, 'signal_transduction': 2, 'stress_death': 3, 'cell_org': 4, 'transport': 5}
+[9339]
+{'metabolism': 0, 'development': 1, 'signal_transduction': 2, 'stress_death': 3, 'cell_org': 4, 'transport': 5}
+what_did_we_learn/apr21-e/ppi_bp/1layer_ppi_bp/ does not exist.
+what_did_we_learn/apr21-e/ppi_bp/2layer_ppi_bp/ does not exist.
+what_did_we_learn/apr21-e/ppi_bp/4layer_ppi_bp/ does not exist.
+what_did_we_learn/apr21-e/ppi_bp/1layer_ppi_bp/ does not exist.
+what_did_we_learn/apr21-e/ppi_bp/2layer_ppi_bp/ does not exist.
+what_did_we_learn/apr21-e/ppi_bp/4layer_ppi_bp/ does not exist.

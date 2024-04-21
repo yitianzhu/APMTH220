@@ -10,7 +10,7 @@ import torch
 import torch.nn as nn 
 from torch.utils.data import DataLoader
 
-from model import SubgraphMamba 
+from SubgraphMamba.legacy.model_no_ff import SubgraphMamba 
 from dataset import SubgraphDataset
 from utils import read_subgraphs
 

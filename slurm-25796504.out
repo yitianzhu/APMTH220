@@ -1,8 +1,0 @@
-Running Graph Mamba with hops on dataset: hpo_metab
-Logging results in: what_did_we_learn/apr21-e/hpo_metab
-[2684]
-{'Lysosomal': 0, 'Energy': 1, 'Amino_Acid': 2, 'Carbohydrate': 3, 'Lipid': 4, 'Glycosylation': 5}
-Running Graph Mamba with hops on dataset: hpo_neuro
-Logging results in: what_did_we_learn/apr21-e/hpo_neuro
-Running Graph Mamba with hops on dataset: ppi_bp
-Logging results in: what_did_we_learn/apr21-e/ppi_bp
